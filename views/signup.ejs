@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>LuvToNote | Sign Up – Join the Love</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel = "stylesheet" type = "text/css" href = "/stylesheets/signup.css">
+    <link rel = "icon" type = "image/x-icon" href = "/images/notes.png">
+</head>
+<body>
+<div class="blob-bg">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+</div>
+
+<div class="signup-container">
+    <div class="signup-card">
+        <div class="form-header">
+            <i class="fas fa-heart"></i>
+            <h3>Create account</h3>
+            <p>Join LuvToNote & start your note journey</p>
+        </div>
+        
+        <form id="signupForm" action="/signup" method="post">
+            <div class="input-group">
+                <i class="fas fa-user-astronaut"></i>
+                <input type="text" id="username" name="username" placeholder="Username" required autocomplete="off">
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" name="email" placeholder="Email address" required autocomplete="off">
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit" id="submitBtn" class="submit-btn">
+                <i class="fas fa-arrow-right"></i> Sign Up
+            </button>
+
+            <div class="signin-redirect">
+                <i class="fas fa-shield-alt" style="font-size: 0.75rem;"></i> Already have an account?
+                <a href="/signin" id="signinLink">Sign In</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="toastMsg" class="toast-message"></div>
+
+<script src = "/javascripts/signup.js"></script>
+</body>
+</html>

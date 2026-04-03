@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>LuvToNote | Create Note – Capture Your Thoughts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel = "stylesheet" type = "text/css" href = "/stylesheets/create.css">
+    <link rel = "icon" type = "image/x-icon" href = "/images/notes.png">
+</head>
+<body>
+
+<div class="blob-bg">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+</div>
+
+<div class="create-container">
+    <!-- Top buttons: Signout, Profile, View Notes -->
+    <div class="top-nav">
+        <div class="logo-area">
+            <i class="fas fa-heart"></i>
+            <span>LuvToNote</span>
+        </div>
+        <form action = "/signout">
+        <button id="signoutBtn" class="nav-btn btn-signout"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+        </form>
+        <form action = "/profile">
+        <button id="profileBtn" class="nav-btn btn-profile"><i class="fas fa-user-circle"></i> Profile</button>
+        </form>
+        <form action = "/view">
+        <button id="viewNotesBtn" class="nav-btn btn-viewnotes"><i class="fas fa-sticky-note"></i> View Notes</button>
+        </form>
+    </div>
+
+    <!-- Main Create Note Card -->
+    <div class="create-card">
+        <div class="form-header">
+            <i class="fas fa-feather-alt"></i>
+            <h1>Create a new note</h1>
+            <p>Capture your thoughts, ideas, and inspirations</p>
+        </div>
+
+        <!-- Create Note Form -->
+        <form action = "/create" method = "post" id="createNoteForm">
+            <!-- Title input field -->
+            <div class="input-group">
+                <i class="fas fa-heading"></i>
+                <input type="text" id="noteTitle" name="title" placeholder="Enter a beautiful title..." required autocomplete="off">
+            </div>
+
+            <!-- Notes textarea -->
+            <div class="input-group textarea-icon">
+                <i class="fas fa-pen-fancy"></i>
+                <textarea id="noteContent" name="note" placeholder="Write your amazing notes here... Let your creativity flow ✨" required></textarea>
+            </div>
+            <div class="char-counter">
+                <span id="charCount">0</span> characters
+            </div>
+
+            <button type="submit" id="createBtn" class="submit-btn">
+                <i class="fas fa-save"></i> Create Note
+            </button>
+        </form>
+    </div>
+</div>
+
+<div id="toastMsg" class="toast-message"></div>
+<script src = "/javascripts/create.js"></script>
+</body>
+</html>

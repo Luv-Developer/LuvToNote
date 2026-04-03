@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>LuvToNote | My Notes – Your Creative Collection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel = "stylesheet" type = "text/css" href = "/stylesheets/view.css">
+    <link rel = "icon" type = "image/x-icon" href = "/images/notes.png">
+</head>
+<body>
+
+<div class="blob-bg">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+</div>
+
+<div class="view-container">
+    <!-- Top buttons: Signout, Profile, Create Note -->
+    <div class="top-nav">
+        <div class="logo-area">
+            <i class="fas fa-heart"></i>
+            <span>LuvToNote</span>
+        </div>
+        <form action = "/signout">
+        <button id="signoutTopBtn" class="nav-btn btn-signout-nav"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+        </form>
+        <form action = "/profile">
+        <button id="profileTopBtn" class="nav-btn btn-profile"><i class="fas fa-user-circle"></i> Profile</button>
+        </form>
+        <form action = "/create">
+        <button id="createTopBtn" class="nav-btn btn-create-nav"><i class="fas fa-plus-circle"></i> Create Note</button>
+        </form>
+    </div>
+
+    <!-- Page header -->
+    <div class="page-header">
+        <h1><i class="fas fa-sticky-note"></i> Your Notes</h1>
+        <p>All your ideas, memories, and thoughts — beautifully organized</p>
+    </div>
+
+    <div class="main-notes-container" id="mainNotesContainer">
+        <div class="notes-grid" id="notesGrid">
+            
+            <% if(notes.length == 0){   %>
+                <div style="text-align:center;justify-content: center;align-items: center; width: 85vw;"> 
+                    <marquee><h2>No Notes Yet..</h2></marquee>
+                </div>
+          <%  }else{   %>
+               <%  notes.reverse().forEach((e)=>{  %>
+                       <div class="note-card" data-note-id="note_html_1">
+                <div class="note-title">
+                    <i class="fas fa-pen-fancy"></i>
+                    <span><%= e.title   %></span>
+                </div>
+                <div class="note-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>created on: <%= e.date   %></span>
+                </div>
+                <div class="note-actions">
+                    <form action = "/open/<%= e.title  %>">
+                    <button class="note-btn open-btn" data-id="note_html_1" data-title="🌸 Welcome to LuvToNote" data-content="Start capturing your beautiful thoughts. Click 'Open Note' to view full content, and use Edit/Delete to manage your notes. This is your personal space to write anything you love! LuvToNote helps you organize your ideas, memories, and daily inspirations in one beautiful place. Create notes, edit them anytime, and keep your thoughts organized."><i class="fas fa-folder-open"></i> Open Note</button>
+                    </form>
+                    <form action = "/edit/<%= e.title %>">
+                    <button class="note-btn edit-btn" data-id="note_html_1" data-title="🌸 Welcome to LuvToNote" data-content="Start capturing your beautiful thoughts. Click 'Open Note' to view full content, and use Edit/Delete to manage your notes. This is your personal space to write anything you love! LuvToNote helps you organize your ideas, memories, and daily inspirations in one beautiful place. Create notes, edit them anytime, and keep your thoughts organized."><i class="fas fa-edit"></i> Edit Note</button>
+                    </form>
+                    <form action = "/delete/<%= e.title  %>">
+                    <button class="note-btn delete-btn" data-id="note_html_1"><i class="fas fa-trash-alt"></i> Delete Note</button>
+                    </form>
+                </div>
+            </div>
+         <%   })  %>
+        <%  }  %>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Open Note -->
+<div id="noteModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modalTitle">Note Title</h3>
+            <button class="close-modal" id="closeModalBtn">&times;</button>
+        </div>
+        <div class="modal-body" id="modalContent">
+            Note content will appear here...
+        </div>
+    </div>
+</div>
+
+<div id="toastMsg" class="toast-message"></div>
+
+<script src = "/javascripts/view.js"></script>
+</body>
+</html>

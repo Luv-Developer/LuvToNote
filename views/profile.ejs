@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>LuvToNote | My Profile – Your Creative Space</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel = "stylesheet" type = "text/css" href = "/stylesheets/profile.css">
+    <link rel = "icon" type = "image/x-icon" href = "/images/notes.png">
+</head>
+<body>
+
+<div class="blob-bg">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+</div>
+
+<div class="profile-container">
+
+    <div class="top-nav">
+        <div class="logo-area">
+            <i class="fas fa-heart"></i>
+            <span>LuvToNote</span>
+        </div>
+        <form action = "/">
+        <button id="homeBtn" class="nav-btn btn-home"><i class="fas fa-home"></i> Home</button>
+        </form>
+        <form action = "signout">
+        <button id="signoutBtn" class="nav-btn btn-signout"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+        </form>
+    </div>
+
+
+    <div class="profile-card">
+        <div class="welcome-section">
+            <div class="avatar-icon">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <h2 id="welcomeUser">Welcome back, <span id="usernameDisplay"><%= username  %></span></h2>
+            <div class="user-badge">
+                <i class="fas fa-leaf"></i> Active member
+            </div>
+        </div>
+
+
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-calendar-alt"></i>
+                <div class="label">Joined on</div>
+                <div class="value" id="joinDateDisplay"><%=  date  %></div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-envelope"></i>
+                <div class="label">Registered Email</div>
+                <div class="value" id="emailDisplay"><%=  email  %></div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-sticky-note"></i>
+                <div class="label">Total Notes Created</div>
+                <div class="value">
+                    <span id="notesCountDisplay" class="notes-count-highlight"><%= totalnotes  %></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <form action = "/create">
+            <button id="createNoteBtn" class="action-btn btn-create">
+                <i class="fas fa-plus-circle"></i> Create Note
+            </button>
+            </form>
+            <form action = "/view">
+            <button id="viewNotesBtn" class="action-btn btn-view">
+                <i class="fas fa-folder-open"></i> View Notes
+            </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="toastMsg" class="toast-message"></div>
+<script src = "/javascripts/profile.js"></script>
+<script>
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>LuvToNote | Open Note – Read Your Thoughts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel = "stylesheet" type = "text/css" href = "/stylesheets/open.css">
+    <link rel = "icon" type = "image/x-icon" href = "/images/notes.png">
+</head>
+<body>
+
+<div class="blob-bg">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+</div>
+
+<div class="open-container">
+    <!-- Top buttons: Signout, Profile, View Notes -->
+    <div class="top-nav">
+        <div class="logo-area">
+            <i class="fas fa-heart"></i>
+            <span>LuvToNote</span>
+        </div>
+        <form action = "/signout">
+        <button id="signoutBtn" class="nav-btn btn-signout"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+        </form>
+        <form action = "/profile">
+        <button id="profileBtn" class="nav-btn btn-profile"><i class="fas fa-user-circle"></i> Profile</button>
+        </form>
+        <form action = "/view">
+        <button id="viewNotesBtn" class="nav-btn btn-viewnotes"><i class="fas fa-sticky-note"></i> View Notes</button>
+        </form>
+    </div>
+
+    <!-- Main Open Note Card -->
+    <div class="open-card" id="openNoteCard">
+        <div class="note-header">
+            <i class="fas fa-book-open"></i>
+            <h1 id="noteTitle"><%= note.title   %></h1>
+            <div class="note-meta">
+                <div class="note-date" id="noteDate">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>created on: <%= note.date  %></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="note-content-wrapper">
+            <div style="text-align: center;" class="note-content" id="noteContent">
+                <%= note.note  %>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <form action = "/edit/<%= note.title  %>">
+            <button id="editNoteBtn" class="action-btn edit-btn">
+                <i class="fas fa-edit"></i> Edit Note
+            </button>
+            </form>
+            <form action = "/delete/<%= note.title  %>">
+            <button id="deleteNoteBtn" class="action-btn delete-btn">
+                <i class="fas fa-trash-alt"></i> Delete Note
+            </button>
+            </form>
+
+            <form action = "/view">
+            <button id="backToViewBtn" class="action-btn back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Notes
+            </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="toastMsg" class="toast-message"></div>
+<script src = "/javascripts/open.js"></script>
+</body>
+</html>

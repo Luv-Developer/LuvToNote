@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>LuvToNote | Reset Password – Secure Recovery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel = "stylesheet" type = "text/css" href = "/stylesheets/forgot.css">
+    <link rel = "icon" type = "image/x-icon" href = "/images/notes.png">
+</head>
+<body>
+
+<div class="blob-bg">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+</div>
+
+<div class="recovery-container">
+    <div class="recovery-card">
+        <div class="form-header">
+            <i class="fas fa-key"></i>
+            <h1>Reset password</h1>
+            <p>Enter your email and we'll send you a recovery link</p>
+        </div>
+
+        <!-- Forgot Password Form: 1 email field + submit button -->
+        <form id="forgotForm" action="/forgot" method="post">
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="recoveryEmail" name="email" placeholder="Your email address" required autocomplete="email">
+            </div>
+
+            <button type="submit" id="recoverBtn" class="submit-btn">
+                <i class="fas fa-paper-plane"></i> Send recovery link
+            </button>
+
+            <div class="back-link">
+                <a href="/signin" id="backToSignin">
+                    <i class="fas fa-arrow-left"></i> Back to Sign In
+                </a>
+            </div>
+            <div class="security-badge">
+                <i class="fas fa-shield-alt"></i> Secure & encrypted
+                <i class="fas fa-lock"></i>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="toastMsg" class="toast-message"></div>
+<script src = "/javascripts/forgot.js"></script>
+</body>
+</html>

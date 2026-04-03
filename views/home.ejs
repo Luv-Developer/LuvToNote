@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>LuvToNote | Love Your Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel = "stylesheet" type = "text/css" href = "/stylesheets/home.css">
+  <link rel = "icon" type = "image/x-icon" href = "/images/notes.png">
+  <link rel = "icon" type = "image/x-icon" href = "/images/notes.png">
+</head>
+<body>
+<div class="blob-bg">
+  <div class="blob"></div>
+  <div class="blob"></div>
+  <div class="blob"></div>
+</div>
+
+<div class="container">
+  <!-- Top navbar with Sign In & Sign Up (replaced Sign Out) -->
+  <div class="navbar">
+    <div class="logo-area">
+      <i class="fas fa-heart"></i>
+      <span>LuvToNote</span>
+    </div>
+    <form action = "/signin">
+    <button id="topSigninBtn" class="btn-outline"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+    </form>
+    <form action = "/signup">
+    <button id="topSignupBtn" class="btn-solid-sm"><i class="fas fa-user-plus"></i> Sign Up</button>
+    </form>
+  </div>
+
+  <!-- Hero area -->
+  <div class="hero">
+    <h1>LuvToNote <i class="fas fa-pen-fancy"></i></h1>
+    <div class="tagline">Your cozy space to create, manage, edit & delete notes — with love.</div>
+    <div class="features-grid">
+      <div class="feature-card"><i class="fas fa-plus-circle"></i><h3>Create</h3><p>Capture thoughts instantly</p></div>
+      <div class="feature-card"><i class="fas fa-edit"></i><h3>Manage & Edit</h3><p>Refine every idea</p></div>
+      <div class="feature-card"><i class="fas fa-trash-alt"></i><h3>Delete</h3><p>Keep only what matters</p></div>
+    </div>
+  </div>
+
+  <!-- Center buttons: Get Started & Sign in -->
+  <div class="cta-group">
+    <form action = "/signup">
+    <button id="getStartedBtn" class="btn-primary"><i class="fas fa-rocket"></i> Get Started</button>
+    </form>
+    <form action = "/signin">
+    <button id="centerSigninBtn" class="btn-secondary"><i class="fas fa-user-circle"></i> Sign in</button>
+    </form>
+  </div>
+
+  <div class="preview-notes">
+    <div class="preview-header">
+      <h3><i class="fas fa-sticky-note"></i> ✨ Try a note demo</h3>
+      <span style="font-size: 0.75rem; color:#b47c56;">Manage, edit & delete — real feel</span>
+    </div>
+    <div id="notesListContainer" class="note-demo-list">
+      <!-- dynamic notes injected -->
+    </div>
+    <div class="add-demo-note">
+      <input type="text" id="newNoteInput" placeholder="Write a new note title... e.g., 'Buy coffee'">
+      <button id="addNoteBtn"><i class="fas fa-plus"></i> Add Note</button>
+    </div>
+    <div class="info-badge">
+      <i class="fas fa-info-circle"></i> Click <i class="fas fa-pen"></i> to edit, <i class="fas fa-trash"></i> to delete. Notes are stored for this session.
+    </div>
+  </div>
+</div>
+
+<div id="toastMsg" class="toast-msg"></div>
+<script src = "/javascripts/home.js"></script>
+</body>
+</html>
