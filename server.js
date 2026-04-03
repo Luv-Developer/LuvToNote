@@ -102,10 +102,10 @@ app.post("/signup",async(req,res)=>{
     }
 })
 
-app.get("/signin",isSignedin,(req,res)=>{
+app.get("/signin",(req,res)=>{
     res.render("signin")
 })
-app.post("/signin",isSignedin,async(req,res)=>{
+app.post("/signin",async(req,res)=>{
     let {email,password} = req.body
     try{
         if(!email || !password){
